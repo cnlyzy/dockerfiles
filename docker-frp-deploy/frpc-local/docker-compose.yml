@@ -1,0 +1,10 @@
+version: '3'
+services:
+      frpc:
+        build: .
+        restart: always
+        # 配置文件
+        volumes:
+          - "$PWD/conf:/frp/conf"
+        # 容器名称
+        container_name: "frpc"
