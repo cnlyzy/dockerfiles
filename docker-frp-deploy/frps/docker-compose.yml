@@ -3,9 +3,12 @@ services:
       frps:
         build: .
         # 端口映射  根据需要自行调整
-        ports:
-          - "7000:7000"
-          - "2223-2260:2223-2260"
+        # ports:
+        #   - "7000:7000"
+        #   - "7500:7500"
+        #   - "6000-6100:6000-6100"
+        #host 模式无需设置端口
+        network_mode: host
         restart: always
         # 配置文件
         volumes:
