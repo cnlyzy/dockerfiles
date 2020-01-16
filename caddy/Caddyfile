@@ -1,0 +1,5 @@
+:80 {
+    log /data/logs/access.log
+    errors /data/logs/error.log
+    proxy / yourIP:port
+}

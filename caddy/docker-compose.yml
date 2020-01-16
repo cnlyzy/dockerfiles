@@ -1,0 +1,17 @@
+version: '3'
+services:
+  caddy:
+    build: .
+    ports:
+      - "2015:2015"
+      - "80:80"
+      - "443:443"
+    restart: always
+    working_dir: /data
+    entrypoint: ./caddy -conf conf/Caddyfile
+    volumes:
+      - "caddy/conf:/data/conf"
+      - "caddy/ssl:/data/ssl"
+      - "caddy/logs:/data/logs"
+    # hostname: "caddy"
+    container_name: "caddy"
