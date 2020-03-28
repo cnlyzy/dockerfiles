@@ -13,4 +13,5 @@ RUN apt-get update && apt-get install -y \
     && pecl install mcrypt-1.0.2 \
     && pecl install swoole \
     && pecl install seaslog \
-    && docker-php-ext-enable redis mcrypt swoole seaslog
+    && pecl install xdebug \
+    && docker-php-ext-enable redis mcrypt swoole seaslog xdebug
