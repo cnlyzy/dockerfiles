@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
         zip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
-    && docker-php-ext-install opcache exif pdo_pgsql pdo_mysql bcmath zip \
+    && docker-php-ext-install opcache exif pdo_pgsql pdo_mysql mysqli bcmath zip \
     && pecl install redis \
     && pecl install mcrypt \
     && pecl install swoole \
