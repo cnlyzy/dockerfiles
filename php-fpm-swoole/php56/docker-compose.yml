@@ -1,0 +1,16 @@
+version: '3'
+services:
+  php:
+    build: .
+    # 暴露端口,也可用不暴露,加入同一个network连接
+    # ports:
+      # - "9001:9001"
+    restart: always
+    volumes:
+      - "~/Dev/php/code:/var/www/html"
+      - "~/Dev/php/conf/www.conf:/usr/local/etc/php-fpm.d/www.conf"
+      - "~/Dev/php/conf/custom.ini:/usr/local/etc/php/conf.d/custom.ini"
+      - "~/Dev/php/conf/docker-php-ext-seaslog.ini:/usr/local/etc/php/conf.d/docker-php-ext-seaslog.ini"
+      - "~/Dev/php/conf/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+      - "~/Dev/php/logs:/var/log/www"
+    container_name: "php56"

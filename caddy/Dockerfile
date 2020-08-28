@@ -1,3 +1,4 @@
+#FROM scratch
 FROM alpine
 COPY dist/caddy /data/
 WORKDIR /data
