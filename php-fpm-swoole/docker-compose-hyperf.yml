@@ -1,0 +1,12 @@
+version: '3'
+services:
+  hyperf:
+    image: hyperf/hyperf:7.4-alpine-v3.11-swoole
+    ports:
+      # servers host 需设置为 '0.0.0.0'
+      - "9501:9501"
+    restart: always
+    volumes:
+      - "~/code/project:/data/project"
+    entrypoint: php /data/project/bin/hyperf.php start
+    container_name: "hyperf-project"
