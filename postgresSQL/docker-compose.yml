@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    # 环境变量
+    environment:
+      # 密码
+      - POSTGRES_PASSWORD=xxx
+    volumes:
+      - /data/postgres/conf:/docker-entrypoint-initdb.d/
+      - /data/postgres/db:/var/lib/postgresql/data:z
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+    container_name: "postgres"

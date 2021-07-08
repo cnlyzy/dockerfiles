@@ -2,15 +2,10 @@ version: '3'
 services:
   php:
     build: .
-    # 暴露端口,也可用不暴露,加入同一个network连接
     ports:
       - "9000:9000"
     restart: always
     volumes:
-      - "$PWD/code:/var/www/html"
-      - "$PWD/conf/www.conf:/usr/local/etc/php-fpm.d/www.conf"
-      - "$PWD/conf/custom.ini:/usr/local/etc/php/conf.d/custom.ini"
-      - "$PWD/conf/docker-php-ext-seaslog.ini:/usr/local/etc/php/conf.d/docker-php-ext-seaslog.ini"
-      - "$PWD/conf/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
-      - "$PWD/logs:/var/log/www"
-    container_name: "php7"
+      - "/data/fpm-project:/var/www/html"
+      - "/data/php/log:/var/log/php"
+    container_name: "php-fpm"

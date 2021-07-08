@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: xxx
+    network_mode: "host"
+    volumes:
+      - "/data/mysql/data:/var/lib/mysql"
+      # - "/data/mysql/conf/my.cnf:/etc/my.cnf"
+    container_name: mysql
