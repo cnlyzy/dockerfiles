@@ -1,0 +1,4 @@
+FROM hyperf/hyperf:7.4-alpine-v3.11-swoole
+RUN apk --no-cache --allow-untrusted --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ add gnu-libiconv=1.15-r2
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so
+RUN apk add --no-cache php7-exif
